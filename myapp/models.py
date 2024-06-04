@@ -14,6 +14,7 @@ class Course(models.Model):
     author = models.OneToOneField(User, on_delete=models.CASCADE, related_name='authored_courses')
     quizzes = models.ManyToManyField('Quiz', related_name='courses')
     lessons = models.ManyToManyField('Lesson', related_name='courses')
+    image=models.ImageField(upload_to='images/', blank=True, null=True)
     def __str__(self):
         return self.name
 
